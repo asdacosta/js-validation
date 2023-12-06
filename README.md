@@ -1,6 +1,6 @@
 <div align='center'>
 
-# Template
+# Validation Form
 </div>
 <div align='center'>
     <h3>💻 Languages</h3>
@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm badge">
     <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint badge">
     <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black" alt="Prettier badge">
-    <!-- <h4><a href="https://asdacosta.github.io/###/">Live Preview</a></h4> -->
+    <h4><a href="https://asdacosta.github.io/js-validation/">Live Preview</a></h4>
 </div>
 
 **Demo:**
@@ -40,20 +40,13 @@
 </details>
 
 ## 🌐 Origin
-<!-- [The Odin Project](https://www.theodinproject.com/) -->
+[The Odin Project](https://www.theodinproject.com/)
 
 ## 📝 Description
-Store all template files.
-
-<details>
-<summary>Features</summary>
-
-* ###
-
-</details>
+Builds a form with validation rules.
 
 ## 🎯 Relevance
-To solidify concepts of `###` in ###. 
+To solidify concepts of `Form Validation` in JavaScript. 
 
 ## 👥 Intended Audience
 Developers, users, recruiters.
@@ -72,8 +65,7 @@ Developers, users, recruiters.
 |`dist/*`| Output files from bundling of files in directory `src/`.|
 |`dist/main.js`| Main JavaScript output file that contains the bundled JavaScript code. Code is minified and optimized for deployment (Due to mode set to production in webpack config). |
 |`package*`| Contains details of project and dependencies versions.|
-| `algorithm.txt` | Algorithm for `JavaScript`. |
-|`readme-assets/*`| Live demo and different screen views used in `README.md`.|
+<!-- |`readme-assets/*`| Live demo and different screen views used in `README.md`.| -->
 
 </details>
 
@@ -83,7 +75,7 @@ Developers, users, recruiters.
 
 | File | Description |
 | - | - |
-|`src/assets/###`| Photo created by ### on [###]().|
+|`src/assets/star.png`| Icon created by Freepik on [Flaticon](https://www.flaticon.com/free-icons/).|
 
 
 </details>
@@ -92,7 +84,7 @@ Developers, users, recruiters.
 <details>
 <summary>Invert</summary>
 
-- [ ] ###
+No Improvements
 
 </details>
 
@@ -104,4 +96,4 @@ Developers, users, recruiters.
 > [!IMPORTANT]
 > Seek contributor's consent for any code usage.
 
-**[🞁 Top](#template)**
+**[🞁 Top](#validation-form)**
