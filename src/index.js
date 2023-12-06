@@ -28,6 +28,9 @@ const displayForm = (function () {
   getNodes.displayFormButton.addEventListener('click', () => {
     getNodes.mainSection.classList.add('active');
     getNodes.overlay.classList.add('overlay');
+
+    colorFields.colorUnfocused();
+    colorFields.colorLive();
   });
 })();
 
@@ -48,4 +51,34 @@ const throwMissingError = (function () {
       });
     }
   });
+})();
+
+const colorFields = (function () {
+  function colorUnfocused() {
+    getNodes.inputs.forEach((input) => {
+      input.addEventListener('blur', () => {
+        if (input.validity.valid) {
+          input.style.backgroundColor = 'lightgreen';
+        }
+        if (!input.validity.valid) {
+          input.style.backgroundColor = 'lightcoral';
+        }
+      });
+    });
+  }
+
+  function colorLive() {
+    getNodes.inputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        if (input.validity.valid) {
+          input.style.backgroundColor = 'lightgreen';
+        }
+        if (!input.validity.valid) {
+          input.style.backgroundColor = 'lightcoral';
+        }
+      });
+    });
+  }
+
+  return { colorUnfocused, colorLive };
 })();
