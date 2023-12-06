@@ -49,6 +49,7 @@ const displayForm = (function () {
 
     colorFields.colorUnfocused();
     colorFields.colorLive();
+    throwMissingError();
   });
 })();
 
@@ -59,7 +60,7 @@ const exitForm = (function () {
   });
 })();
 
-const throwMissingError = (function () {
+const throwMissingError = function () {
   getNodes.inputs.forEach((input) => {
     if (input.validity.valueMissing) {
       input.setCustomValidity(`${input.getAttribute('data-label')} is required`);
@@ -68,7 +69,7 @@ const throwMissingError = (function () {
       });
     }
   });
-})();
+};
 
 const colorFields = (function () {
   function colorUnfocused() {
