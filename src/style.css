@@ -11,7 +11,7 @@ body {
   background-color: rgb(167, 139, 97);
 }
 
-body > div {
+body > div:first-child {
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -78,11 +78,27 @@ body > div {
   opacity: 1;
   transform: scale(1.1);
 }
-/* 
-input:valid {
-  background-color: lightgreen;
+
+body > div:last-child {
+  position: relative;
 }
 
-input:invalid {
-  background-color: lightcoral;
-} */
+img {
+  position: absolute;
+  visibility: hidden;
+  bottom: 15rem;
+  left: -5rem;
+  width: 10rem;
+  height: 10rem;
+  opacity: 0;
+  transition:
+    opacity 1s ease-in-out,
+    transform 1s ease-in-out;
+}
+
+.high-five {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(2);
+  z-index: 10;
+}
