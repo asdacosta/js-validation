@@ -1,6 +1,14 @@
 import './reset.css';
 import './style.css';
 
+const importAllAssets = (function () {
+  function importAll(r) {
+    return r.keys().map(r);
+  }
+
+  const assets = importAll(require.context('./assets', false, /\.(png|jpe?g|svg)$/));
+})();
+
 const getNodes = (function () {
   const displayFormButton = document.querySelector('body > button');
   const exit = document.querySelector('.form-sec > div:first-child');
@@ -15,6 +23,11 @@ const getNodes = (function () {
   const pwdConfirm = document.getElementById('pwd-confirm');
   const inputs = [email, country, zipCode, pwd];
 
+  // For congratUser...
+  const form = document.querySelector('form');
+  const submitButton = document.querySelector('.form-sec button');
+  const starImg = document.querySelector('img');
+
   return {
     displayFormButton,
     mainSection,
@@ -23,6 +36,9 @@ const getNodes = (function () {
     inputs,
     pwd,
     pwdConfirm,
+    submitButton,
+    starImg,
+    form,
   };
 })();
 
@@ -99,5 +115,28 @@ const validateConfirmPwd = (function () {
     }
 
     getNodes.pwdConfirm.setCustomValidity('');
+  });
+})();
+
+const congratUserForSubmission = (function () {
+  function resetFields() {
+    getNodes.inputs.forEach((input) => {
+      input.style.backgroundColor = 'white';
+    });
+    getNodes.pwdConfirm.style.backgroundColor = 'white';
+    getNodes.form.reset();
+  }
+
+  getNodes.submitButton.addEventListener('click', (event) => {
+    if (getNodes.form.checkValidity()) {
+      event.preventDefault();
+      getNodes.starImg.classList.add('high-five');
+      setTimeout(() => {
+        getNodes.starImg.classList.remove('high-five');
+      }, 2000);
+
+      resetFields();
+      getNodes.mainSection.classList.remove('active');
+    }
   });
 })();
