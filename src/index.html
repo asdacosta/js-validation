@@ -19,7 +19,7 @@
               id="mail"
               name="mail"
               data-label="Email"
-              maxlength="15"
+              maxlength="25"
               placeholder="xxx@gmail.com"
               required
             />
@@ -58,6 +58,8 @@
               name="pwd"
               data-label="Password"
               maxlength="15"
+              placeholder="At least 3 chracters excluding symbols."
+              pattern="[a-zA-Z0-9]{3,}"
               required
             />
           </div>
@@ -69,6 +71,7 @@
               name="pwd-confirm"
               data-label="Confirming password"
               maxlength="15"
+              pattern="[a-zA-Z0-9]{3,}"
               required
             />
           </div>
