@@ -11,9 +11,28 @@ body {
   background-color: rgb(167, 139, 97);
 }
 
+body > div {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.overlay {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .form-sec {
   background-color: rgb(127, 193, 196);
-  width: 30rem;
+  width: 25rem;
   height: auto;
   padding-top: 0.1rem;
 }
@@ -43,4 +62,15 @@ body {
 .form-sec > button {
   margin: 2rem 0;
   margin-left: 45%;
+}
+
+.main-sec {
+  visibility: hidden;
+  z-index: 2;
+  transition: transform 0.5s ease-in;
+}
+
+.main-sec.active {
+  visibility: visible;
+  transform: scale(1.1);
 }
