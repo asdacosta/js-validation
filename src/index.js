@@ -13,7 +13,7 @@ const getNodes = (function () {
   const zipCode = document.getElementById('zip');
   const pwd = document.getElementById('pwd');
   const pwdConfirm = document.getElementById('pwd-confirm');
-  const inputs = [email, country, zipCode, pwd, pwdConfirm];
+  const inputs = [email, country, zipCode, pwd];
 
   return {
     displayFormButton,
@@ -21,6 +21,8 @@ const getNodes = (function () {
     overlay,
     exit,
     inputs,
+    pwd,
+    pwdConfirm,
   };
 })();
 
@@ -45,7 +47,6 @@ const throwMissingError = (function () {
   getNodes.inputs.forEach((input) => {
     if (input.validity.valueMissing) {
       input.setCustomValidity(`${input.getAttribute('data-label')} is required`);
-
       input.addEventListener('input', () => {
         input.setCustomValidity('');
       });
@@ -68,7 +69,7 @@ const colorFields = (function () {
   }
 
   function colorLive() {
-    getNodes.inputs.forEach((input) => {
+    getNodes.inputs.forEach((input, index) => {
       input.addEventListener('input', () => {
         if (input.validity.valid) {
           input.style.backgroundColor = 'lightgreen';
@@ -81,4 +82,22 @@ const colorFields = (function () {
   }
 
   return { colorUnfocused, colorLive };
+})();
+
+const validateConfirmPwd = (function () {
+  if (getNodes.pwdConfirm.validity.valueMissing) {
+    getNodes.pwdConfirm.setCustomValidity(
+      `${getNodes.pwdConfirm.getAttribute('data-label')} is required`,
+    );
+  }
+
+  getNodes.pwdConfirm.addEventListener('input', () => {
+    if (getNodes.pwdConfirm.value === getNodes.pwd.value) {
+      getNodes.pwdConfirm.style.backgroundColor = 'lightgreen';
+    } else {
+      getNodes.pwdConfirm.style.backgroundColor = 'lightcoral';
+    }
+
+    getNodes.pwdConfirm.setCustomValidity('');
+  });
 })();
