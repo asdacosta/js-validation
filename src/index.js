@@ -1,38 +1,45 @@
 import './reset.css';
 import './style.css';
 
-const displayForm = (function () {
+const getNodes = (function () {
   const displayFormButton = document.querySelector('body > button');
+  const exit = document.querySelector('.form-sec > div:first-child');
   const mainSection = document.querySelector('.main-sec');
   const overlay = document.querySelector('body > div');
 
-  displayFormButton.addEventListener('click', () => {
-    mainSection.classList.add('active');
-    overlay.classList.add('overlay');
-  });
-
-  return { mainSection, overlay };
-})();
-
-const exitForm = (function () {
-  const exit = document.querySelector('.form-sec > div:first-child');
-
-  exit.addEventListener('click', () => {
-    displayForm.mainSection.classList.remove('active');
-    displayForm.overlay.classList.remove('overlay');
-  });
-})();
-
-const throwMissingError = (function () {
+  // For throw...
   const email = document.getElementById('mail');
   const country = document.getElementById('country');
   const zipCode = document.getElementById('zip');
   const pwd = document.getElementById('pwd');
   const pwdConfirm = document.getElementById('pwd-confirm');
-
   const inputs = [email, country, zipCode, pwd, pwdConfirm];
 
-  inputs.forEach((input) => {
+  return {
+    displayFormButton,
+    mainSection,
+    overlay,
+    exit,
+    inputs,
+  };
+})();
+
+const displayForm = (function () {
+  getNodes.displayFormButton.addEventListener('click', () => {
+    getNodes.mainSection.classList.add('active');
+    getNodes.overlay.classList.add('overlay');
+  });
+})();
+
+const exitForm = (function () {
+  getNodes.exit.addEventListener('click', () => {
+    getNodes.mainSection.classList.remove('active');
+    getNodes.overlay.classList.remove('overlay');
+  });
+})();
+
+const throwMissingError = (function () {
+  getNodes.inputs.forEach((input) => {
     if (input.validity.valueMissing) {
       input.setCustomValidity(`${input.getAttribute('data-label')} is required`);
 
